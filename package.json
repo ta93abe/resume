@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "rome format --write src/"
   },
   "dependencies": {
     "next": "12.1.6",
@@ -19,6 +20,7 @@
     "@types/react-dom": "18.0.4",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "rome": "^0.5.0-next",
     "typescript": "4.6.4"
   },
   "volta": {
