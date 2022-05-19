@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { Button } from './Button';
-import './header.css';
+import { Button } from "./Button";
+import "./header.css";
 
-type User = {
-  name: string;
-};
+type User = { name: string };
 
 interface HeaderProps {
-  user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
+	user?: User;
+	onLogin: () => void;
+	onLogout: () => void;
+	onCreateAccount: () => void;
 }
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
-  <header>
+export const Header = (
+	{ user, onLogin, onLogout, onCreateAccount }: HeaderProps,
+) => (
+	<header>
     <div className="wrapper">
       <div>
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

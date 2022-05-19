@@ -19,6 +19,11 @@ const Home: NextPage = () => {
     <h1 className="text-3xl font-dotGothic">
       にほんご
     </h1>
+    <button type="button" onClick={() => {
+    throw new Error("Sentry Frontend Error");
+}}>
+    Throw error
+</button>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

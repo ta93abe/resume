@@ -34,3 +34,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# editor
+.idea
+.vscode
+# Sentry
+.sentryclirc

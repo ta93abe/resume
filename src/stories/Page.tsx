@@ -1,17 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import { Header } from './Header';
-import './page.css';
+import { Header } from "./Header";
+import "./page.css";
 
-type User = {
-  name: string;
-};
+type User = { name: string };
 
 export const Page: React.VFC = () => {
-  const [user, setUser] = React.useState<User>();
+	const [user, setUser] = React.useState<User>();
 
-  return (
-    <article>
+	return (
+		<article>
       <Header
         user={user}
         onLogin={() => setUser({ name: 'Jane Doe' })}
@@ -69,5 +67,5 @@ export const Page: React.VFC = () => {
         </div>
       </section>
     </article>
-  );
+	);
 };
