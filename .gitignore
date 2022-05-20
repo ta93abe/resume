@@ -27,9 +27,16 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
+
+# editor
+.idea
+.vscode
+# Sentry
+.sentryclirc
