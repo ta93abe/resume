@@ -4,55 +4,42 @@ import NextErrorComponent from 'next/error';
 
 import { httpStatusCode, HttpStatusCode } from '../constants/httpStatusCode';
 
-type Props = {
-  statusCode: HttpStatusCode;
-  err?: Error;
-  hasGetInitialPropsRun?: boolean;
-};
+type Props = { statusCode: HttpStatusCode; err?: Error; hasGetInitialPropsRun?: boolean };
 
-const CustomErrorPage: NextPage<Props> = ({
-  statusCode,
-  hasGetInitialPropsRun,
-  err,
-}) => {
-  if (!hasGetInitialPropsRun && err) {
-    Sentry.captureException(err);
-  }
+const CustomErrorPage: NextPage<Props> = ({ statusCode, hasGetInitialPropsRun, err }) => {
+	if (!hasGetInitialPropsRun && err) {
+		Sentry.captureException(err);
+	}
 
-  return <NextErrorComponent statusCode={statusCode} />;
+	return <NextErrorComponent statusCode={statusCode} />;
 };
 
 const defaultTimeout = 2000;
 
-CustomErrorPage.getInitialProps = async (
-  context: NextPageContext,
-): Promise<Props> => {
-  const errorInitialProps = (await NextErrorComponent.getInitialProps(
-    context,
-  )) as Props;
+CustomErrorPage.getInitialProps =
+	async (context: NextPageContext): Promise<Props> => {
+		const errorInitialProps = (await NextErrorComponent.getInitialProps(context)) as Props;
 
-  const { res, err, asPath } = context;
+		const { res, err, asPath } = context;
 
-  errorInitialProps.hasGetInitialPropsRun = true;
+		errorInitialProps.hasGetInitialPropsRun = true;
 
-  if (res?.statusCode === httpStatusCode.notFound) {
-    return errorInitialProps;
-  }
+		if (res?.statusCode === httpStatusCode.notFound) {
+			return errorInitialProps;
+		}
 
-  if (err) {
-    Sentry.captureException(err);
+		if (err) {
+			Sentry.captureException(err);
 
-    await Sentry.flush(defaultTimeout);
+			await Sentry.flush(defaultTimeout);
 
-    return errorInitialProps;
-  }
+			return errorInitialProps;
+		}
 
-  Sentry.captureException(
-    new Error(`_error.tsx getInitialProps missing data at path: ${asPath}`),
-  );
-  await Sentry.flush(defaultTimeout);
+		Sentry.captureException(new Error(`_error.tsx getInitialProps missing data at path: ${asPath}`));
+		await Sentry.flush(defaultTimeout);
 
-  return errorInitialProps;
-};
+		return errorInitialProps;
+	};
 
 export default CustomErrorPage;
