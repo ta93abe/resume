@@ -9,11 +9,11 @@ module.exports =
 			themes: [
 				{
 					ta93abe: {
-						"primary": "#9333ea",
-						"secondary": "#c026d3",
+						"primary": "#7B20CA",
+						"secondary": "#5B1564",
 						"accent": "#a3e635",
-						"neutral": "#110E0E",
-						"base-100": "#171212",
+						"neutral": "#D63D3D",
+						"base-100": "#1A0522",
 						"info": "#7dd3fc",
 						"success": "#4ade80",
 						"warning": "#fde047",
