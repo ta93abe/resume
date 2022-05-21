@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 const Home: NextPage = () => {
 	return (
-    <>
+		<>
       <div className='flex flex-1 min-h-screen justify-center items-center font-dotGothic text-7xl'>
         <div className='px-4'>
         工事中
