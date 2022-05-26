@@ -24,7 +24,7 @@ interface ServerSideIndexProps {
 export default function Stack(props: Props) {
 	return (
 		<div className='flex flex-col min-h-screen justify-center items-center'>
-            <h1>Stacks</h1>
+            <div className='text-6xl'>Stacks</div>
             {props.categories.map(category => (
                 <div key={category.id}>
                     <h2>{category.name}</h2>
